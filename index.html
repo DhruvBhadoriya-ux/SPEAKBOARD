@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f6f5f2" />
+    <meta name="description" content="Speakboard is a calm space to capture tasks, collect notes, and focus on what matters." />
+    <title>Speakboard — your day, in focus</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to dashboard</a>
+
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Speakboard sidebar">
+        <a class="brand" href="#dashboard" aria-label="Speakboard home">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 40 40" fill="none"><rect width="40" height="40" rx="13" fill="currentColor"/><path d="M8.5 21h4l2.4-7 4.2 13 3.7-10 2.6 6h6.1" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+          <span class="brand-name">Speakboard</span>
+        </a>
+
+        <div class="sidebar-caption">WORKSPACE</div>
+        <nav class="primary-nav" aria-label="Main navigation">
+          <a class="nav-link is-active" href="#dashboard" aria-current="page">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="7" height="7" rx="2"/><rect x="13.5" y="3.5" width="7" height="4" rx="2"/><rect x="13.5" y="10.5" width="7" height="10" rx="2"/><rect x="3.5" y="13.5" width="7" height="7" rx="2"/></svg>
+            <span>Dashboard</span>
+          </a>
+          <a class="nav-link" href="#task-notes">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3.75h7l5 4.75v11a1.5 1.5 0 0 1-1.5 1.5H7A2 2 0 0 1 5 19V6.25a2.5 2.5 0 0 1 2-2.5Z"/><path d="M14 4v5h5M8.5 13h7M8.5 16.5h7"/></svg>
+            <span>Task Notes</span>
+          </a>
+          <a class="nav-link" href="#focus">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5l3.5 2M9 2.75h6M12 2.75v1"/></svg>
+            <span>Focus</span>
+          </a>
+        </nav>
+
+        <div class="sidebar-spacer"></div>
+
+        <div class="sidebar-tip">
+          <span class="tip-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 3.5 14.3 9l5.7 2.2-5.7 2.3-2.3 5.7-2.2-5.7L4 11.2 9.8 9 12 3.5Z"/><path d="m19 16 .9 2.1L22 19l-2.1.9L19 22l-.9-2.1L16 19l2.1-.9L19 16Z"/></svg>
+          </span>
+          <p>Small steps add up.<br /><strong>Keep your pace.</strong></p>
+        </div>
+
+        <div class="sidebar-profile">
+          <div class="profile-avatar" aria-hidden="true">S</div>
+          <div class="profile-copy"><strong>Your workspace</strong><span>Personal space</span></div>
+          <button class="icon-button profile-more" type="button" aria-label="Workspace options" title="Workspace options">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="5" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/></svg>
+          </button>
+        </div>
+      </aside>
+
+      <main class="main-content" id="main-content">
+        <header class="topbar">
+          <div class="topbar-context">
+            <span class="eyebrow" id="today-label">YOUR PERSONAL WORKSPACE</span>
+            <span class="topbar-subtitle">A little more focus, one day at a time.</span>
+          </div>
+          <div class="topbar-actions">
+            <span class="sync-status"><span class="status-dot" aria-hidden="true"></span> Saved on this device</span>
+            <div class="topbar-avatar" aria-label="Speakboard workspace">S</div>
+          </div>
+        </header>
+
+        <div class="dashboard-wrap" id="dashboard">
+          <section class="welcome-section" aria-labelledby="welcome-title">
+            <div class="welcome-copy">
+              <span class="welcome-kicker"><span class="sparkle" aria-hidden="true">✳</span> YOUR DAY, IN FOCUS</span>
+              <h1 id="welcome-title">Make room for<br class="desktop-break" /> what matters.</h1>
+              <p>Clear your mind, capture the next step, and give it your attention.</p>
+            </div>
+            <div class="voice-capture">
+              <div class="voice-copy">
+                <span class="voice-label">HAVE A THOUGHT?</span>
+                <span class="voice-prompt" id="voice-status" role="status" aria-live="polite">Say it. We’ll make it a task.</span>
+              </div>
+              <button class="mic-button" id="mic-button" type="button" aria-label="Speak to add a task" title="Speak to add a task">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="3" width="6" height="12" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21m-3 0h6"/></svg>
+                <span class="mic-ripple" aria-hidden="true"></span>
+              </button>
+            </div>
+            <span class="welcome-orbit orbit-one" aria-hidden="true"></span>
+            <span class="welcome-orbit orbit-two" aria-hidden="true"></span>
+          </section>
+
+          <section class="stats-grid" aria-label="Task statistics">
+            <article class="stat-card stat-total">
+              <div class="stat-top"><span class="stat-label">Total Task</span><span class="stat-icon icon-lilac" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 6.5h12M8 12h12M8 17.5h12M4 6.5h.01M4 12h.01M4 17.5h.01"/></svg></span></div>
+              <div class="stat-value" id="total-count">0</div>
+              <div class="stat-foot">Tasks on your list</div>
+            </article>
+            <article class="stat-card stat-complete">
+              <div class="stat-top"><span class="stat-label">Complete Task</span><span class="stat-icon icon-mint" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.2 4L19 7"/></svg></span></div>
+              <div class="stat-value" id="complete-count">0</div>
+              <div class="stat-foot">Look at you go <span aria-hidden="true">↗</span></div>
+            </article>
+            <article class="stat-card stat-pending">
+              <div class="stat-top"><span class="stat-label">Pending Task</span><span class="stat-icon icon-peach" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5l3.5 2"/></svg></span></div>
+              <div class="stat-value" id="pending-count">0</div>
+              <div class="stat-foot">Ready when you are</div>
+            </article>
+            <article class="stat-card stat-productivity">
+              <div class="stat-top"><span class="stat-label">Productivity Percentage</span><span class="stat-icon icon-blue" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m4 16 5-5 3.5 3.5L20 7"/><path d="M14.5 7H20v5.5"/></svg></span></div>
+              <div class="stat-value"><span id="productivity-count">0</span><span class="stat-unit">%</span></div>
+              <div class="stat-foot"><span class="mini-progress"><span id="productivity-progress"></span></span><span>of tasks complete</span></div>
+            </article>
+          </section>
+
+          <div class="dashboard-grid">
+            <section class="panel tasks-panel" aria-labelledby="tasks-heading">
+              <div class="panel-header">
+                <div><span class="section-kicker">STAY ON TRACK</span><h2 id="tasks-heading">Your tasks<span class="heading-count" id="task-heading-count">0</span></h2></div>
+                <span class="today-chip"><span class="today-dot" aria-hidden="true"></span> Today</span>
+              </div>
+
+              <form class="task-form" id="task-form">
+                <label class="visually-hidden" for="task-input">Add a task</label>
+                <svg class="input-spark" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5 14.3 9l5.7 2.2-5.7 2.3-2.3 5.7-2.2-5.7L4 11.2 9.8 9 12 3.5Z"/></svg>
+                <input id="task-input" name="task" type="text" maxlength="120" placeholder="What would you like to get done?" autocomplete="off" required />
+                <button class="add-task-button" type="submit"><span>Add task</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></button>
+              </form>
+
+              <div class="task-toolbar">
+                <div class="filter-tabs" role="group" aria-label="Filter tasks">
+                  <button class="filter-button is-selected" type="button" data-filter="all" aria-pressed="true">All</button>
+                  <button class="filter-button" type="button" data-filter="pending" aria-pressed="false">To do</button>
+                  <button class="filter-button" type="button" data-filter="completed" aria-pressed="false">Done</button>
+                </div>
+                <span class="task-sort-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6h12M8 12h8M8 18h4M4 6h.01M4 12h.01M4 18h.01"/></svg> My list</span>
+              </div>
+
+              <ul class="task-list" id="task-list" aria-label="Tasks"></ul>
+              <div class="empty-state" id="empty-state" hidden>
+                <span class="empty-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4.5h10a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-11a2 2 0 0 1 2-2Z"/><path d="m9 12 2 2 4-4"/></svg></span>
+                <strong id="empty-title">A fresh page</strong>
+                <span id="empty-copy">Add a task above and take it one step at a time.</span>
+              </div>
+              <div class="tasks-footer"><span><span class="footer-check" aria-hidden="true">✓</span> Every small win counts.</span><span id="remaining-label">0 left</span></div>
+            </section>
+
+            <div class="right-column">
+              <section class="panel notes-panel" id="task-notes" aria-labelledby="notes-heading">
+                <div class="panel-header compact-header">
+                  <div><span class="section-kicker">CLEAR YOUR HEAD</span><h2 id="notes-heading">Quick notes</h2></div>
+                  <span class="notes-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 4.5h14v15H5z"/><path d="M8.5 9h7M8.5 12.5h7M8.5 16h4"/></svg></span>
+                </div>
+                <form class="note-form" id="note-form">
+                  <label class="visually-hidden" for="note-input">Write a quick note</label>
+                  <textarea id="note-input" maxlength="1000" placeholder="Jot down a thought, a reminder, or anything to come back to…" required></textarea>
+                  <button class="add-note-button" type="submit"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg><span>Save note</span></button>
+                </form>
+                <ul class="notes-list" id="notes-list" aria-label="Saved notes"></ul>
+                <div class="notes-empty" id="notes-empty" hidden>No notes yet. Capture a thought above.</div>
+                <div class="notes-footer"><span id="notes-save-status" aria-live="polite">Notes are saved on this device</span><span id="notes-count">0 notes</span></div>
+              </section>
+
+              <section class="panel focus-panel" id="focus" aria-labelledby="focus-heading">
+                <div class="panel-header compact-header focus-header">
+                  <div><span class="section-kicker">ONE THING AT A TIME</span><h2 id="focus-heading">Focus timer</h2></div>
+                  <span class="focus-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3.5v3m0 11v3m8.5-8.5h-3m-11 0h-3M18 6l-2.1 2.1M8.1 15.9 6 18m12 0-2.1-2.1M8.1 8.1 6 6"/><circle cx="12" cy="12" r="5.2"/></svg></span>
+                </div>
+                <div class="timer-modes" role="group" aria-label="Timer duration">
+                  <button class="timer-mode is-active" type="button" data-minutes="25" data-mode="focus" aria-pressed="true">Focus · 25 min</button>
+                  <button class="timer-mode" type="button" data-minutes="5" data-mode="break" aria-pressed="false">Short break · 5 min</button>
+                </div>
+                <div class="focus-session-summary"><span>Completed focus sessions</span><strong id="focus-session-count">0</strong></div>
+                <div class="timer-face" aria-label="Focus session timer">
+                  <svg class="timer-ring" viewBox="0 0 120 120" aria-hidden="true">
+                    <circle class="timer-ring-track" cx="60" cy="60" r="51" />
+                    <circle class="timer-ring-progress" id="timer-ring-progress" cx="60" cy="60" r="51" />
+                  </svg>
+                  <div class="timer-readout">
+                    <span class="timer-mode-label" id="timer-mode-label">FOCUS TIME</span>
+                    <span class="timer-time" id="timer-display" role="timer" aria-live="off">25:00</span>
+                    <span class="timer-hint" id="timer-hint">You’ve got this.</span>
+                  </div>
+                </div>
+                <div class="timer-controls">
+                  <button class="timer-start" id="timer-start" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 10 6-10 6V6Z" fill="currentColor" stroke="none"/></svg><span>Start</span></button>
+                  <button class="timer-pause" id="timer-pause" type="button" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6.5h2.5v11H8zM13.5 6.5H16v11h-2.5z" fill="currentColor" stroke="none"/></svg><span>Pause</span></button>
+                  <button class="timer-reset" id="timer-reset" type="button" aria-label="Reset focus session" title="Reset focus session"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 10a7.5 7.5 0 1 1 .4 5M4.5 4.5V10H10"/></svg></button>
+                </div>
+                <p class="timer-notification" id="timer-notification" role="status" aria-live="polite" hidden></p>
+                <p class="timer-caption">A gentle nudge to stay with the moment.</p>
+              </section>
+
+              <section class="panel activity-panel" aria-labelledby="voice-activity-heading">
+                <div class="panel-header compact-header">
+                  <div><span class="section-kicker">RECENT VOICE COMMANDS</span><h2 id="voice-activity-heading">Voice activity</h2></div>
+                  <span class="activity-count" id="voice-activity-count">0 / 10</span>
+                </div>
+                <ol class="voice-activity-list" id="voice-activity-list" aria-label="Last 10 voice commands"></ol>
+                <div class="activity-empty" id="voice-activity-empty">Your recent voice commands will appear here.</div>
+              </section>
+            </div>
+          </div>
+
+          <footer class="page-footer"><span>Made for a calmer kind of productive.</span><span><span class="footer-heart" aria-hidden="true">♥</span> One thing at a time</span></footer>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
